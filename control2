@@ -1,0 +1,205 @@
+#include<iostream>
+
+using namespace std;
+
+//...........................................NUMERO1............................................................................
+class nodo{
+	public:	
+	  nodo *sig;
+	  int val;
+	
+	nodo(){
+		
+	}
+};
+
+class setTDA{
+	public:
+	nodo* head;
+	setTDA(){
+		head=NULL;
+	}
+};
+
+class conjuntoTDA{
+public:
+	setTDA *z;
+	
+	
+	conjunto(){
+	}
+	
+	void agrega(data x){
+		z->insert(x);
+		}
+		
+	void saca(){
+	 z->delete();
+		}
+		
+	bool estavacio(){
+		if(z->isempy()) return true;
+		  else {
+			 return false;
+	           }
+		} 
+		
+	//.......................................pertenece........................................................
+		
+	bool pertenece(data x){
+		if(estavacio()) return false;
+		nodo *aux=head;
+		bool seguir=true;
+		while(seguir){
+			
+			if(x==aux) return true;
+			
+			else
+			aux=aux->sig;
+			}
+		}
+		
+	//............................................INTERCECCION...............................................
+		
+	conjuntoTDA interseccion(conjunto c){
+		conjuntoTDA b;
+		nodo *aux1;
+		nodo *aux=c->head;
+		while(aux!=nullptr){
+			nodo *aux2=z->head;
+			while(aux2!=nullptr){
+				if(aux2==aux) b->agrega(aux2); 
+				aux2=aux2->next;
+				}
+			aux1=aux->next
+			}
+		return b;
+	
+		}
+	//.,...........................................UNION...................................................	
+
+	conjuntoTDA union(conjunto c){
+		conjuntoTDA b;
+		
+		bool seguir=true;
+		while(seguir){
+		    if(c->sig!=NULL){	
+			b->agrega(c->saca());
+			}
+			else seguir=false;
+		}
+		
+			bool seguir=true;
+		while(seguir){
+		    if(z->sig!=NULL){	
+			b->agrega(z->saca());
+			}
+			else seguir=false;
+		}
+		return b;
+		}
+
+
+
+
+
+
+
+//..............................................NUMEROOO 2....................................................................
+class item{
+	item *sig;
+	string valor;
+	int cant_llamados;
+};
+
+class lista{
+	private:
+		item *head;
+	    int cantTotal;
+	public:
+		lista(){
+			head=NULL;
+			this->cantTotal=0;
+		}
+		
+		
+		
+	bool vacio(){
+		return(head==NULL);
+	}
+	
+	
+	void cantTotal{
+		item *aux=head;
+	    bool seguir=true;
+	    if(vacio()==true){
+	    	contTotal=0;
+		}
+		else{
+		
+	    while(seguir){
+	    	if(aux!=NULL){
+	    		cantTotal++;
+	    		aux=aux->sig;
+			}
+			else{
+				seguir=false;
+			}
+		}
+	}
+	
+	}
+	
+	
+	
+    //..........................1...............................................
+	void agregarItem(item *i){
+	i->sig=head;
+	head=i;
+	
+	}
+	
+	
+    void agregar(string valor){
+        item *nodo = new item();
+        item->valor = valor;
+        agregaritem(item);
+    }
+	
+	//..........................2...............................................
+	
+	int probabilidad(string valor){
+		item *aux=head;
+		bool seguir=true;
+		if(vacio()==true){
+			return NULL;
+		}
+		else{
+		
+		while(seguir){
+			if(aux->valor==valor){
+				cant_llamados++;
+				aux=aux->sig;
+			}
+			else if(aux->sig==NULL){
+				seguir=false;
+			}
+		}
+		
+		}
+		int prob=cant_llamados/cantTotal;
+		return prob;
+	}
+	
+	
+	
+};
+
+
+
+int main(){
+	
+	
+	
+	return 0;
+}
